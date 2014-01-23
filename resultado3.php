@@ -10,7 +10,10 @@
         <?php
             //Entrada datos       
             $nombre = $_REQUEST['nombre'];
-            $edad = $_REQUEST['edad'];
+            $edad = $_REQUEST['edad'];     
+            $beca = isset($_REQUEST['beca']);
+            $sexo = (isset($_REQUEST['sexo']))?$_REQUEST['sexo']:false;
+            $estado = (isset($_REQUEST['estado']))?$_REQUEST['estado']:false;
             //Validar datos
             $error = false;
             $mensaje_error = "ERROR: ";
@@ -25,14 +28,29 @@
                 $error = true;
                 $mensaje_error .= "Edad debe ser un número...<br>";
             } 
+            if (!($sexo)) {
+                $error = true;
+                $mensaje_error .= "Sexo no elegido ...<br>";
+            }
+            if (!($estado)) {
+                $error = true;
+                $mensaje_error .= "Estado cicvil no elegido ...<br>";
+            }
             //Cálculo y Salida
             if (!$error) {
                 // Si no hay error
                 if ($edad>=18) {
-                    echo $nombre." es Mayor de Edad";
+                    echo $nombre." es Mayor de Edad<br>";
                 } else {    
-                    echo $nombre." es Menor de edad";
+                    echo $nombre." es Menor de edad<br>";
                 }
+                if ($beca) {
+                    echo "Solicita beca";
+                } else {
+                    echo "No solicita beca";
+                }
+                echo "Sexo = ".$sexo."<br>";
+                echo "Estado Civil =".$estado."<br>";
             } else {
                 // Si hay error
                 echo $mensaje_error;

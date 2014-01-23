@@ -15,7 +15,19 @@ and open the template in the editor.
         <form action="resultado3.php" method="GET">
             <p>Nombre: <input type="text" name="nombre" /></p>
             <p>Edad: <input type="text" name="edad" /></p>
-            <p>Solicita 
+            <p>Solicita beca: <input type="checkbox" name="beca"></p>
+            <p>Sexo</br>
+                <input type="radio" name="sexo" value="M"> Masculino
+                <input type="radio" name="sexo" value="F"> Femenino
+            <p>Estado  civil
+                <select name="estado">
+                    <option selected="selected" disabled="disabled"></option>
+                    <option>soltero</option>
+                    <option>casado</option>
+                    <option>divorciado</option>
+                    <option>otros</option>
+                </select>
+                
             <p><input type="submit" value="Enviar" /></p>
         </form>
     </body>

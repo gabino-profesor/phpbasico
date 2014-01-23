@@ -82,3 +82,4 @@ function validarNombreEstricto($valor) {
         return false;
     }
 }
+
