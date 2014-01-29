@@ -1,3 +1,4 @@
+<?php require_once 'funcionesIMC.php'; ?>
 <html>
     <head>
         <title>TODO supply a title</title>
@@ -7,28 +8,15 @@
     <body>
         <div>Resultado IMC</div>
         <?php
-            //print_r($_REQUEST);
             $masa = $_REQUEST['masa'];
             $estatura = $_REQUEST['estatura'];
             $imc = 0.0;
             $clasificacion = "";
             //Cálculo
-            $estatura = $estatura / 100; // cms a mts
-            $imc = $masa /  ($estatura * $estatura);
-            
-            echo "Valor IMC = ";
-            echo $imc;
-            
-            if ($imc < 18.5) {
-                $clasificacion = "Bajo peso";       
-            } elseif ($imc < 25) {
-                $clasificacion = "Normal"; 
-            } elseif ($imc < 30) {
-                $clasificacion = "Sobrepeso"; 
-            } else {
-                $clasificacion = "Obesisad";
-            }
-            
+            $imc = calculoIMC($masa, $estatura);
+            $clasificacion = clasificacionIMC($imc);
+            //
+            echo "IMC = ".$imc;
             echo "<br>";
             echo "Clasificación = ".$clasificacion;
         ?>
