@@ -10,15 +10,27 @@
         <?php
             $masa = $_REQUEST['masa'];
             $estatura = $_REQUEST['estatura'];
-            $imc = 0.0;
-            $clasificacion = "";
-            //Cálculo
-            $imc = calculoIMC($masa, $estatura);
-            $clasificacion = clasificacionIMC($imc);
-            //
-            echo "IMC = ".$imc;
-            echo "<br>";
-            echo "Clasificación = ".$clasificacion;
+            $errores = array();
+            if (!validarPeso($masa)) {
+                $errores[] = MSG_ERR_PESO;
+            }
+             if (!validarPeso($estatura)) {
+                $errores[] = MSG_ERR_ESTATURA;
+            }
+            if (count($errores)>0) {
+                echo "Errores<br>";
+                foreach($errores as $error) {
+                    echo $error.'<br>';
+                }
+            } else {
+                //Cálculo
+                $imc = calculoIMC($masa, $estatura);
+                $clasificacion = clasificacionIMC($imc);
+                //presentación
+                echo "IMC = ".$imc;
+                echo "<br>";
+                echo "Clasificación = ".$clasificacion;
+            }
         ?>
     </body>
 </html>
