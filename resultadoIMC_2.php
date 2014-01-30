@@ -8,23 +8,26 @@
     <body>
         <div>Resultado IMC</div>
         <?php
-            $masa = $_REQUEST['masa'];
+            $peso = $_REQUEST['peso'];
             $estatura = $_REQUEST['estatura'];
-            $errores = array();
-            if (!validarPeso($masa)) {
-                $errores[] = MSG_ERR_PESO;
+            $errores = "";
+            
+             if (!validarPeso($peso)) {
+                print_r("ErrorPaso:".$peso); 
+                $errores .= "error_peso";
             }
-             if (!validarPeso($estatura)) {
-                $errores[] = MSG_ERR_ESTATURA;
+            if (!validarEstatura($estatura)) {
+                if (strlen($errores)>0) $errores .= '&';
+                $errores .= "error_estatura";
             }
-            if (count($errores)>0) {
-                echo "Errores<br>";
-                foreach($errores as $error) {
-                    echo $error.'<br>';
-                }
+            
+            if (strlen($errores)>0) {
+                $url = "http://".$_SERVER['SERVER_NAME']."/phpbasico/formularioIMC_2.php?".$_SERVER['QUERY_STRING']."&".$errores;
+                //print_r($url);
+               header('Location:'.$url);
             } else {
                 //Cálculo
-                $imc = calculoIMC($masa, $estatura);
+                $imc = calculoIMC($peso, $estatura);
                 $clasificacion = clasificacionIMC($imc);
                 //presentación
                 echo "IMC = ".$imc;

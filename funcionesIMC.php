@@ -83,7 +83,7 @@ function validarPeso($peso) {
  * @return boolean True si cumple y False en caso contrario
  */
 function validarEstatura($estatura) {
-    if (filter_var($peso,FILTER_VALIDATE_INT)) {
+    if (filter_var($estatura,FILTER_VALIDATE_INT)) {
         $resultado = enRango(ESTATURA_MIN, ESTATURA_MAX, $estatura);
     } else {
         $resultado = FALSE;
