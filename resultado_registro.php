@@ -11,6 +11,16 @@ function validarDatosRegistro() {
      * validar passwordr es igual a password
      * validar email
      */
+    $resultadoValidacion = True;
+    $login = (isset($_REQUEST['login']))?
+            $_REQUEST['login']:"";
+    
+    
+    if (!validarLogin($login)) {
+        $resultadoValidacion = False;
+    }
+    
+    return $resultadoValidacion;
 } 
 ?>
 <html>
