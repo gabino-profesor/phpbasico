@@ -18,6 +18,8 @@ function validarDatosRegistro() {
             $_REQUEST['password']:"";
     $passwordr = (isset($_REQUEST['passwordr']))?
             $_REQUEST['passwordr']:"";
+    $email = (isset($_REQUEST['email']))?
+            $_REQUEST['email']:"";
     
     if (!validarLogin($login)) {
         $resultadoValidacion = False;
@@ -30,6 +32,10 @@ function validarDatosRegistro() {
             $resultadoValidacion = False;
         }          
     }
+    
+    if (!validarEmail($email)) {
+        $resultadoValidacion = False;
+    }    
     
     return $resultadoValidacion;
 } 

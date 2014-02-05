@@ -48,3 +48,12 @@ function validarPassword($password) {
     return (enRango(PASS_MIN, PASS_MAX, $longitud) 
             && preg_match($patron, $password));
 }
+
+/**
+ * validarEmail
+ * @param email
+ * @return bool 
+ */
+function validarEmail($email) {
+    return (filter_var($email,FILTER_VALIDATE_EMAIL ));
+}
