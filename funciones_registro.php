@@ -35,3 +35,16 @@ function validarLogin($login) {
             && preg_match($patron, $login));
 }
 
+/**
+ * validarPassword
+ * La longitud debe estar entre PASS_MIN y PASS_MAX
+ * y debe contener solo un conjunto determinado de caracteres (patrón)
+ * @param password
+ * @return bool 
+ */
+function validarPassword($password) {
+    $patron = "/^[[:alnum:]]*[._-]+[[:alnum:]]*$/";
+    $longitud = strlen($password);
+    return (enRango(PASS_MIN, PASS_MAX, $longitud) 
+            && preg_match($patron, $password));
+}
