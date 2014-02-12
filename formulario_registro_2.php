@@ -39,9 +39,6 @@ and open the template in the editor.
     </head>
     <body>
         <div>Registro</div>
-        <?php
-            print_r($login); 
-        ?>
         <form action="resultado_registro_2.php" method="GET">
             <div>Login: <input type="text" name="login" value="<?php echo $login; ?>"> </div>    
             <div><?php 
