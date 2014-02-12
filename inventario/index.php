@@ -13,10 +13,20 @@ and open the template in the editor.
     </head>
     <body>
         <div>INVENTARIO</div>
-        Test Prueba Conexión
         <?php
             $bd = conectaBd();
-            echo "Conexión realizada con éxito...";
+            $consulta = "SELECT * FROM equipo";
+            $resultado = $bd->query($consulta);
+            print_r($resultado);
+            if (!$resultado) {
+                echo "No hay Equipos...";
+            } else {
+                echo "Equipo<br>Nombre<br>";
+                foreach($resultado as $registro) {
+                    echo $registro['nombre']."<br>"; 
+                }
+            }
+            
             $bd = null;
         ?>    
     </body>
