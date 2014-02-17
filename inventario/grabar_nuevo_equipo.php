@@ -27,12 +27,20 @@ function validarDatosRegistro() {
     $errores[3] = validarRam($datos[3]);
     // ----- Asignar a variables de Sesión ----//
     $_SESSION['datos'] = $datos;
-    $_SESSION['errores'] = $errores;
+    $_SESSION['errores'] = $errores;  
+    $_SESSION['hayErrores'] = 
+            ($errores[0] || $errores[1] ||
+             $errores[2] ||$errores[3]);
     
 }
 
+
 // PRINCIPAL //
 validarDatosRegistro();
-print_r($_SESSION['datos']);
-print_r($_SESSION['errores']);
+if ($_SESSION['hayErrores']) {
+    $url = "formulario_nuevo_equipo.php";
+    header('Location:'.$url);
+} else {
+    echo "Grabar Equipo en Base de Datos...";
+}
 
