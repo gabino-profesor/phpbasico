@@ -11,5 +11,5 @@ define('MSG_ERR_PASSWORD', "Password incorrecto ...");
 define('MSG_ERR_PASSWORDR', "Los Password no coinciden ...");
 define('MSG_ERR_EMAIL', "Email incorrecto ...");
 
-?>
 
+?>
