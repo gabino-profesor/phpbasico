@@ -13,13 +13,15 @@ and open the template in the editor.
     </head>
     <body>
         <div>INVENTARIO</div>
+        <div>
+        <a href="formulario_nuevo_equipo.php">Nuevo Equipo</a>
+        </div>
         <?php
             $bd = conectaBd();
             $consulta = "SELECT * FROM equipo";
             $resultado = $bd->query($consulta);
-            print_r($resultado);
             if (!$resultado) {
-                echo "No hay Equipos...";
+                echo "Error en la consulta";
             } else {
                 echo "Equipo<br>Nombre<br>";
                 foreach($resultado as $registro) {
