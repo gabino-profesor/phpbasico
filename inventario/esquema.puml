@@ -23,16 +23,19 @@ existen se inicializan
 ...
 nombre: text 
 value: $_SESSION[datos][0]
+Si error mostrar msg
 ----
 desc: text 
 value: $_SESSION[datos][1]
+Si error mostrar msg
 ---
 ip: text 
 value: $_SESSION[datos][2]
+Si error mostrar msg
 ---
 ram: text 
 value: $_SESSION[datos][3]
-
+Si error mostrar msg
 }
 
 class SESSION << (S, orchild) _SESSION>> {
