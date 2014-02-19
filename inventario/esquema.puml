@@ -1,0 +1,27 @@
+@startuml
+hide <<php>> circle
+class index << (P, orchild) php>>{
+include:estilo.css
+include:funciones_bd.php
+--
+script: generar listado
+}
+class estilo << (C, orchild) css>> {
+estilo1
+}
+class funciones_bd << (F, orchild) php>>{
+script: bd
+}
+class formulario_equipo_nuevo <<php>>
+class SESSION <<php>>
+class grabar_equipo <<php>>
+class formulario <<formulario>>
+index --> formulario_equipo_nuevo: link
+index ..> funciones_bd: include
+index ..> estilo: include
+formulario_equipo_nuevo o-- formulario
+formulario --> grabar_equipo: submit
+index --|> SESSION
+formulario_equipo_nuevo --|> SESSION
+
+@enduml
