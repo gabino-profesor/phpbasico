@@ -1,9 +1,6 @@
 @startuml
 hide <<php>> circle
 class index << (P, orchild) php>>{
-include:estilo.css
-include:funciones_bd.php
---
 script: generar listado
 }
 class estilo << (C, orchild) css>> {
