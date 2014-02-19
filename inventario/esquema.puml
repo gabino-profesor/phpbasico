@@ -23,19 +23,19 @@ existen se inicializan
 ...
 nombre: text 
 value: $_SESSION[datos][0]
-Si error mostrar msg
+Si error mostrar MSG_ERR_NOMBRE
 ----
 desc: text 
 value: $_SESSION[datos][1]
-Si error mostrar msg
+Si error mostrar MSG_ERR_DESC
 ---
 ip: text 
 value: $_SESSION[datos][2]
-Si error mostrar msg
+Si error mostrar MSG_ERR_IP
 ---
 ram: text 
 value: $_SESSION[datos][3]
-Si error mostrar msg
+Si error mostrar MSG_ERR_RAM
 }
 
 class SESSION << (S, orchild) _SESSION>> {
@@ -54,7 +54,20 @@ Constantes
 - MSG_ERR_IP
 - MSG_ERR_RAM 
 }
-class grabar_equipo <<php>>
+
+class funciones_validar << (F, orchild) php >> {
+Funciones para validar datos
+...
+- validarNombre(valor): boolean
+- validarDesc(valor) :boolean
+- validarIP(valor) :boolean
+- validarRam(valor) :boolean
+
+}
+class grabar_nuevo_equipo << (P, orchild) php >> {
+Recibe datos del formulario
+...
+}
 
 index --> formulario_nuevo_equipo: link
 index ..> funciones_bd: include
@@ -63,5 +76,7 @@ formulario_nuevo_equipo o-- form_nuevo_equipo
 formulario --> grabar_equipo: submit
 formulario_nuevo_equipo --|> SESSION
 formulario_nuevo_equipo ..> constantes: include
+form_nuevo_equipo --> grabar_nuevo_equipo: submit
+grabar_nuevo_equipo ..> funciones_validar: include
 
 @enduml
