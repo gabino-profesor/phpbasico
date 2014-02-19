@@ -23,10 +23,13 @@ $_SESSION['hayErrores'] = (isset($_SESSION['hayErrores']))?
     <body>
         <div>Datos Nuevo Equipo</div>
         <form action="grabar_nuevo_equipo.php" method="GET">
-            <div>Nombre: <input type="text" name="nombre" /></div>
-            <div>Descripción <input type="text" name="desc" /></div>
-            <div>IP <input type="text" name="ip" /></div>
-            <div>RAM <input type="text" name="ram" /></div>
+            <div>Nombre: <input type="text" name="nombre" 
+                                value="<?php echo $_SESSION['datos'][0]; ?>"/></div>
+            <div>Descripción <input type="text" name="desc" 
+                                value="<?php echo $_SESSION['datos'][1]; ?>"/></div>
+            <div>IP <input type="text" name="ip" 
+                           value="<?php echo $_SESSION['datos'][2]; ?>"/></div>
+            <div>RAM <input type="text" name="ram" value="<?php echo $_SESSION['datos'][3]; ?>" /></div>
             <p><input type="submit" value="Enviar" /></p>
         </form>
     </body>

@@ -18,15 +18,29 @@ Pedir datos para un nuevo equipo
 
 }
 class form_nuevo_equipo <<formulario>> {
-- nombre: text
-- desc: text
-- ip: text
-- ram: text
+Las variables de sesion si no 
+existen se inicializan
+...
+nombre: text 
+value: $_SESSION[datos][0]
+----
+desc: text 
+value: $_SESSION[datos][1]
+---
+ip: text 
+value: $_SESSION[datos][2]
+---
+ram: text 
+value: $_SESSION[datos][3]
 
 }
 
 class SESSION << (S, orchild) _SESSION>> {
 variables de sesion
+---
+-datos: Array con los datos de form
+-errores: Array flags de errores
+-hayErrores: Indica si hay algun error  
 }
 class grabar_equipo <<php>>
 
