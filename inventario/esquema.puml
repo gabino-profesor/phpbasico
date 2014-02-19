@@ -42,6 +42,15 @@ variables de sesion
 -errores: Array flags de errores
 -hayErrores: Indica si hay algun error  
 }
+
+class constantes << (F, orchild) php >> {
+Constantes
+---
+- MSG_ERR_NOMBRE
+- MSG_ERR_DESC
+- MSG_ERR_IP
+- MSG_ERR_RAM 
+}
 class grabar_equipo <<php>>
 
 index --> formulario_nuevo_equipo: link
@@ -50,5 +59,6 @@ index ..> estilo: include
 formulario_nuevo_equipo o-- form_nuevo_equipo
 formulario --> grabar_equipo: submit
 formulario_nuevo_equipo --|> SESSION
+formulario_nuevo_equipo ..> constantes: include
 
 @enduml
