@@ -1,24 +1,40 @@
 @startuml
-hide <<php>> circle
+hide <<formulario>> circle
 class index << (P, orchild) php>>{
 script: generar listado
 }
 class estilo << (C, orchild) css>> {
-estilo1
+pendiente de definir
 }
 class funciones_bd << (F, orchild) php>>{
-script: bd
+BD_USUARIO
+BD_PASSWORD
+BD_NOME
+BD_CONEX_PDO
+- conecta_bd()
 }
-class formulario_equipo_nuevo <<php>>
-class SESSION <<php>>
+class formulario_nuevo_equipo << (P, orchild) php>> {
+Pedir datos para un nuevo equipo
+
+}
+class form_nuevo_equipo <<formulario>> {
+- nombre: text
+- desc: text
+- ip: text
+- ram: text
+
+}
+
+class SESSION << (S, orchild) _SESSION>> {
+variables de sesion
+}
 class grabar_equipo <<php>>
-class formulario <<formulario>>
-index --> formulario_equipo_nuevo: link
+
+index --> formulario_nuevo_equipo: link
 index ..> funciones_bd: include
 index ..> estilo: include
-formulario_equipo_nuevo o-- formulario
+formulario_nuevo_equipo o-- form_nuevo_equipo
 formulario --> grabar_equipo: submit
-index --|> SESSION
-formulario_equipo_nuevo --|> SESSION
+formulario_nuevo_equipo --|> SESSION
 
 @enduml
