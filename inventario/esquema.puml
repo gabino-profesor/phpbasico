@@ -69,14 +69,31 @@ Recibe datos del formulario
 ...
 }
 
+class grabacion_ok << (P, orchild) php >> {
+Muestra mensaje de grabación correcta
+}
+
+class error << (P, orchild) php >> {
+Muestra mensaje de error
+}
+
+
 index --> formulario_nuevo_equipo: link
 index ..> funciones_bd: include
 index ..> estilo: include
 formulario_nuevo_equipo o-- form_nuevo_equipo
 formulario --> grabar_equipo: submit
-formulario_nuevo_equipo --|> SESSION
+formulario_nuevo_equipo ..> SESSION: usa
 formulario_nuevo_equipo ..> constantes: include
 form_nuevo_equipo --> grabar_nuevo_equipo: submit
 grabar_nuevo_equipo ..> funciones_validar: include
+grabar_nuevo_equipo ..> SESSION: usa
+grabar_nuevo_equipo --> formulario_nuevo_equipo: redirect (error validar)
+grabar_nuevo_equipo --> grabacion_ok: redirect (grabacion correcta)
+grabar_nuevo_equipo --> error: redirect {parameter: msg_error}
 
+grabacion_ok --> index: link
+grabacion_ok --> formulario_nuevo_equipo: link
+
+error --> index: link
 @enduml
