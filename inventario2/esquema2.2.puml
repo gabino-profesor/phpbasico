@@ -1,0 +1,46 @@
+@startuml
+title "ADD nuevo registro sin validacion"
+
+class index << (P, orchild) php>>{
+Pagina inicial
+...
+Enlace a Software
+}
+
+class funciones_bd << (F, orchild) php>>{
+BD_USUARIO
+BD_PASSWORD
+BD_NOME
+BD_CONEX_PDO
+- conecta_bd()
+}
+
+class listado_software << (P, orchild) php>> {
+Listado de software
+...
+}
+
+
+class formulario_nuevo_software << (F, orchild) php >> {
+Formulario para dar de alta un registro
+==
+form
+...
+titulo: text
+url: text
+
+}
+
+class grabar_nuevo_software << (F, orchild) php >> {
+Graba registro software
+...
+Si Error BD: mensaje de error
+}
+
+index --> listado_software: link
+listado_software ..> funciones_bd: include
+listado_software -->formulario_nuevo_software: link
+formulario_nuevo_software --> grabar_nuevo_software: submit
+grabar_nuevo_software --> listado_software: redirect (Si no error)
+grabar_nuevo_software ..> funciones_bd: include
+@enduml
