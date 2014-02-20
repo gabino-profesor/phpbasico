@@ -1,7 +1,7 @@
 <?php
 require_once 'funciones_bd.php';
 
-$db = conectaDb();
+$db = conectaBd();
 
 $titulo    = $_REQUEST['titulo'];
 $url = $_REQUEST['url'];
