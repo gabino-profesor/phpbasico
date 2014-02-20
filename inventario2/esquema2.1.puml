@@ -1,0 +1,52 @@
+@startuml
+
+
+title Listado de Software
+package mysql <<database>> {
+note as N1
+    importar fichero SQL a mysql
+    para crear tabla: software
+    
+end note
+class software << (T, orchild) tabla >> {
+BD Inventario
+...
+id: int PK AI
+titulo: varchar(50) NULL
+url: tinytext NULL
+}
+
+N1 -right-> software
+}
+
+
+package site_inventario2 <<rect>> {
+
+class index << (P, orchild) php>>{
+Pagina inicial
+...
+Enlace a Software
+}
+
+class funciones_bd << (F, orchild) php>>{
+BD_USUARIO
+BD_PASSWORD
+BD_NOME
+BD_CONEX_PDO
+- conecta_bd()
+}
+
+class listado_software << (P, orchild) php>> {
+Listado de software
+...
+script que realiza un listado de titulos y url
+}
+
+
+index -right-> listado_software: link
+listado_software ..> funciones_bd: include
+
+}
+ mysql -down..site_inventario2
+
+@enduml
