@@ -1,8 +1,22 @@
 <?php
+require_once 'funciones_bd.php';
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+$db = conectaDb();
 
+$titulo    = $_REQUEST['titulo'];
+$url = $_REQUEST['url'];
+
+$consulta = "INSERT INTO software 
+    (titulo, url)
+    VALUES (:titulo, :url)";
+$resultado = $db->prepare($consulta);
+if ($resultado->execute(array(":titulo" => $titulo, ":url" => $url))) {
+    print "<p>Registro creado correctamente.</p>\n";
+} else {
+    print "<p>Error al crear el registro.</p>\n";
+}
+
+$db = null;
+
+
+?>
