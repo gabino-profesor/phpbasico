@@ -10,7 +10,8 @@
 
 
 define('MSG_ERR', "Error...");
-
+define('MSG_ERR_TITULO', "Error Titulo...");
+define('MSG_ERR_URL', "Error URL...");
 
 // Funciones de validación
 
@@ -20,7 +21,7 @@ function limpiar($valor) {
 
 function validarTitulo($valor) {
     $valor = limpiar($valor);
-    if (strlen($valor)>0){
+    if (strlen($valor)>0 && strlen($valor)<=50){
         return TRUE;
     } else {
         return FALSE;
