@@ -46,6 +46,9 @@ if ($_SESSION['hayErrores']) {
     VALUES (:titulo, :url)";
     $resultado = $db->prepare($consulta);
     if ($resultado->execute(array(":titulo" => $titulo, ":url" => $url))) {
+        unset($_SESSION['datos']);
+        unset($_SESSION['errores']);
+        unset($_SESSION['hayErrores']);
         $url = "listado_software.php";
         header('Location:'.$url);
     } else {
