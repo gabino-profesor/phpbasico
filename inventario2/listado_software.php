@@ -13,6 +13,7 @@ and open the template in the editor.
     </head>
     <body>
         <div>Listado de Software</div>
+        <div><a href="formulario_nuevo_software.php">Nuevo Equipo</a></div>
         <?php
             $bd = conectaBd();
             $consulta = "SELECT * FROM software";
@@ -24,11 +25,17 @@ and open the template in the editor.
                 echo "<tr>";
                 echo "<th>Titulo</th>";
                 echo "<th>URL</th>";
+                echo "<th></th>";
+                echo "<th></th>";
                 echo "</tr>";
                 foreach($resultado as $registro) {
                     echo "<tr>";
                     echo "<td>".$registro['titulo']."</td>";
                     echo "<td>".$registro['url']."</td>";
+                    echo "<td>";
+                    $destino="formulario_editar_software.php?id=".$registro['id'];
+                    echo "<a href=".$destino.">Editar</a></td>";
+                    echo "<td>"."Eliminar"."</td>";
                     echo "</tr>";          
                 }
                 echo "</table>";
