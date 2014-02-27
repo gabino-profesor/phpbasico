@@ -6,12 +6,17 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>INVENTARIO 2</title>
+        <title>INVENTARIO 3</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
     </head>
     <body>
-        <div>INVENTARIO 2</div>
-        <div><a href="listado_software.php">Acceso a Listado de Software</a> </div>
+        <div>INVENTARIO 3</div>
+        
+        <form action="login.php" method="POST">
+            <div>Login: <input type="text" name="login" /></div>
+            <div>Password: <input type="password" name="password" /></div>
+            <div><input type="submit" value="Entrar" /></div>
+        </form>
     </body>
 </html>
