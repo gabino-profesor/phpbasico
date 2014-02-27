@@ -52,7 +52,8 @@ if ($_SESSION['hayErrores']) {
         $url = "listado_software.php";
         header('Location:'.$url);
     } else {
-        print "<p>Error al crear el registro.</p>\n";
+        $url = "error.php?msg_error=Error_Grabar_Nuevo_Software";
+        header('Location:'.$url);
     }
 
     $db = null;
