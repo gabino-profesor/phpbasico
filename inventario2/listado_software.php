@@ -35,8 +35,11 @@ and open the template in the editor.
                     echo "<td>";
                     $destino="formulario_editar_software.php?id=".$registro['id'];
                     echo "<a href=".$destino.">Editar</a></td>";
-                    echo "<td>"."Eliminar"."</td>";
-                    echo "</tr>";          
+                    echo "</td>";
+                    echo "<td>";
+                    $destino="confirmar_eliminar_software.php?id=".$registro['id'];
+                    echo "<a href=".$destino.">Eliminar</a></td>";                    
+                    echo "</td>";          
                 }
                 echo "</table>";
             }
