@@ -1,0 +1,11 @@
+@startuml
+
+
+class funciones << (F, orchild) php >> {
+Funciones para validar datos
+...
+- validarTitulo(valor): boolean
+- validarURL(valor) :boolean
+
+}
+@enduml
