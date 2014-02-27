@@ -1,13 +1,10 @@
 <?php
 session_start();
 require_once 'funciones_bd.php';
-require_once 'funciones.php';
-
     
     $_SESSION['id'] = (isset($_SESSION['id']))?
             $_SESSION['id']:0;
     
-    echo $_SESSION['id'];
     $db = conectaBd();
      
     $consulta = "DELETE FROM software WHERE id = :id ";
