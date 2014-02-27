@@ -86,6 +86,8 @@ formulario --> grabar_equipo: submit
 formulario_nuevo_equipo ..> SESSION: usa
 formulario_nuevo_equipo ..> constantes: include
 form_nuevo_equipo --> grabar_nuevo_equipo: submit
+
+grabar_nuevo_equipo ..> funciones_bd: include
 grabar_nuevo_equipo ..> funciones_validar: include
 grabar_nuevo_equipo ..> SESSION: usa
 grabar_nuevo_equipo --> formulario_nuevo_equipo: redirect (error validar)

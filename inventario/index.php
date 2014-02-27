@@ -24,11 +24,21 @@ and open the template in the editor.
             if (!$resultado) {
                 echo "Error en la consulta";
             } else {
-                echo "Equipo<br>Nombre<br>";
+                echo "<table border=1>";
+                echo "<tr>";
+                echo "<th>Nombre</th>";
+                echo "<th>IP</th>";
+                echo "</tr>";
                 foreach($resultado as $registro) {
-                    echo $registro['nombre']."<br>"; 
+                    echo "<tr>";
+                    echo "<td>".$registro['nombre']."</td>";
+                    echo "<td>".$registro['ip']."</td>";
+                    echo "<td><a href=formulario_editar_equipo.php?id=".$registro['id'].">Editar</a></td>";
+                    echo "</tr>";          
                 }
+                echo "</table>";
             }
+            
             
             $bd = null;
         ?>    
