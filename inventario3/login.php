@@ -24,7 +24,7 @@ if (!$resultado->execute(array(":login" => $login,":password" => $password))) {
            $url = "error.php?msg_error=Error_Usuario_Inexistente";
            header('Location:'.$url);
        } else {
-           $_SESSION['usuario'] = $registro['nombre'];
+           $_SESSION['usuario'] = $registro[2]; //Coger tercer campo: nombre
            $url = "listado_software.php";
            header('Location:'.$url);
        }
