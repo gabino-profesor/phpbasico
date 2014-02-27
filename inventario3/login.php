@@ -6,12 +6,16 @@ $login = (isset($_REQUEST['login']))?
 $password = (isset($_REQUEST['password']))?
             $_REQUEST['password']:"";
 
+if ($login == "" || $password =="") {
+    $url = "index.php";
+    header('Location:'.$url);
+}
 
 $bd = conectaBd();
 
 $consulta = "SELECT * FROM usuario WHERE login = :login and password = :password";
 $resultado = $db->prepare($consulta);
-if ($resultado->execute(array(":login" => $login,":password" => $password))) {
+if (!$resultado->execute(array(":login" => $login,":password" => $password))) {
        $url = "error.php?msg_error=Error_Consulta__Login";
        header('Location:'.$url);
 } else { 
