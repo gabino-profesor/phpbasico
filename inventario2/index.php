@@ -12,6 +12,6 @@ and open the template in the editor.
     </head>
     <body>
         <div>INVENTARIO 2</div>
-        <div><a href="listado_software.php">Acceso a Listado de Favoritos</a> </div>
+        <div><a href="listado_software.php">Acceso a Listado de Software</a> </div>
     </body>
 </html>

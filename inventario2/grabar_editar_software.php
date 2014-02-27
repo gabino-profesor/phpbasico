@@ -55,10 +55,14 @@ if ($_SESSION['hayErrores']) {
     if ($resultado->execute(array(":titulo" => $titulo,
         ":url" => $url, 
         ":id" => $id))) {
+            unset($_SESSION['datos']);
+            unset($_SESSION['errores']);
+            unset($_SESSION['hayErrores']);
             $url = "listado_software.php";
             header('Location:'.$url);
     } else {
-        print "<p>Error al crear el registro.</p>\n";
+        $url = "error.php?msg_error=Error_Grabar_Registro_Software";
+        header('Location:'.$url);
     }
 
     $db = null;

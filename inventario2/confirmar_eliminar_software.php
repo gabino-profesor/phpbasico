@@ -15,7 +15,7 @@ and open the template in the editor.
         <div>Confirmar Eliminar Registro Software</div>
 <?php
 $_SESSION['id'] = (isset($_REQUEST['id']))?
-            $_REQUEST['id']:$_SESSION['id'];
+            $_REQUEST['id']:0;
 
 $bd = conectaBd();
 $consulta = "SELECT * FROM software WHERE id=".$_SESSION['id'];
