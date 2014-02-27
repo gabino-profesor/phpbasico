@@ -3,9 +3,9 @@ session_start();
 require_once 'funciones.php';
     // Estructura: campos del formulario
 $_SESSION['datos'] = (isset($_SESSION['datos']))?
-            $_SESSION['datos']:Array('','','','');
+            $_SESSION['datos']:Array('','');
 $_SESSION['errores'] = (isset($_SESSION['errores']))?
-            $_SESSION['errores']:Array(FALSE,FALSE,FALSE,FALSE);
+            $_SESSION['errores']:Array(FALSE,FALSE);
 $_SESSION['hayErrores'] = (isset($_SESSION['hayErrores']))?
             $_SESSION['hayErrores']:FALSE;
 /* 
@@ -28,14 +28,24 @@ and open the template in the editor.
     </head>
     <body>
         <div>TODO write content</div>
-        <form action="resultado1.php" method="GET">
-            <div>Titulo: <input type="text" name="nombre" 
+        <form action="grabar_nuevo_software.php" method="GET">
+            <div>Titulo: <input type="text" name="titulo" 
                               value="<?php echo $_SESSION['datos'][0]; ?>"/>
             </div>
-            <div>URL <input type="text" name="apellido" 
+           <?php
+                if ($_SESSION['errores'][0]) {
+                    echo "<div class 'error'>".MSG_ERR_TITULO."</div>";
+                }
+            ?>
+            <div>URL <input type="text" name="url" 
                             value="<?php echo $_SESSION['datos'][1]; ?>"/></div>
             </div>
-            <input type="submit" value="Enviar" /></p>
+            <?php
+                if ($_SESSION['errores'][1]) {
+                    echo "<div class 'error'>".MSG_ERR_URL."</div>";
+                }
+            ?>
+            <input type="submit" value="Enviar" />
         </form>
     </body>
 </html>
