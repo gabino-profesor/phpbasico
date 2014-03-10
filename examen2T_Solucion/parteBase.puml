@@ -1,0 +1,60 @@
+@startuml
+
+title Parte Base
+
+class producto << (T, orchild) tabla >> {
+BD Inventario
+...
+IdProducto: int(10) PK AI
+NombreProducto: varchar(50) 
+PrecioUnidad: decimal(19,4)
+UnidadesExistencia: smallint(5) 
+}
+
+class usuario << (T, orchild) tabla >> {
+BD Inventario
+...
+Login: varchar(30) PK 
+Password: varchar(30) 
+Nombrte: varchar(30)
+}
+
+class proveedor << (T, orchild) tabla >> {
+BD Inventario
+...
+IdProveedor: int(10 PK IA
+NombreEmpresa: varchar(40) 
+NombreContacto: varchar(30)
+CargoContacto: varchar(30)
+Direccion: varchar(60)
+Ciudad: varchar(15)
+CodPostal: varchar(10)
+Pais: varchar(15)
+CargoContacto: varchar(24)
+}
+
+class bbdd << (F, orchild) php>>{
+BD_USUARIO
+BD_PASSWORD
+BD_NOME
+BD_CONEX_PDO
+- conecta_bd()
+}
+
+class func << (F, orchild) php>>{
+Constantes
+...
+- limpiar
+- formatoMoneda
+- validarNombreProducto
++ validarPrecio
++ validarExistencia
+}
+
+class estilo << (C, orchild) php>>{
+CSS
+...
+Estilos aplicados al sitio
+}
+
+@enduml

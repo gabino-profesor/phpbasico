@@ -1,0 +1,44 @@
+@startuml
+
+title Parte 3
+
+class index << (P, orchild) php>>{
+Pagina inicial
+...
+Enlace a Listado
+Enlace a Acceso
+}
+
+class listado << (P, orchild) php>>{
+Listado de Productos
+...
+bbdd: include
+}
+
+class falta2 << (P, orchild) php>>{
+Formulario para alta de un producto
+...
+bbdd: include
+func: include
+}
+
+class galta2 << (P, orchild) php>>{
+Proceso de grabar (insert) un producto nuevo
+...
+bbdd: include
+func: include
+}
+
+class error << (P, orchild) php>>{
+Mostrar Error
+...
+}
+
+index --> listado: link {listado}
+listado --> falta2: link {Alta Con Val}
+falta2 --> galta2: submit
+galta2 --> listado: redirect {si OK}
+galta2 --> listado: redirect {Si error Validar}
+galta2--> error: redirect {si Error Grabar}
+error --> index: link
+@enduml

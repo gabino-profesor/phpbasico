@@ -1,0 +1,93 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+
+div.portada {
+   width:64px; /*width of your image*/
+   height:64px; /*height of your image*/
+   background-image:url('images/portada.png');
+   margin:0; /* If you want no margin */
+   padding:0; /*if your want to padding */
+}
+
+div.login{
+   width:64px; /*width of your image*/
+   height:64px; /*height of your image*/
+   background-image:url('images/login.png');
+   margin:0; /* If you want no margin */
+   padding:0; /*if your want to padding */
+}
+
+div.proveedores{
+   width:64px; /*width of your image*/
+   height:64px; /*height of your image*/
+   background-image:url('images/proveedores.png');
+   margin:0; /* If you want no margin */
+   padding:0; /*if your want to padding */
+}
+
+div.productos{
+   width:64px; /*width of your image*/
+   height:64px; /*height of your image*/
+   background-image:url('images/productos.png');
+   margin:0; /* If you want no margin */
+   padding:0; /*if your want to padding */
+}
+
+div.formulario{
+   width:64px; /*width of your image*/
+   height:64px; /*height of your image*/
+   background-image:url('images/formulario.png');
+   margin:0; /* If you want no margin */
+   padding:0; /*if your want to padding */
+}
+
+div.error{
+   width:64px; /*width of your image*/
+   height:64px; /*height of your image*/
+   background-image:url('images/error.png');
+   margin:0; /* If you want no margin */
+   padding:0; /*if your want to padding */
+}
+
+div.caja {
+    border-style:solid;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+div.caja_error {
+    width:50%; /*width of your image*/  
+    border-style:solid;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: red;
+}
+
+ul { 
+  list-style-type: none; 
+  text-align:left; 
+}
+
+li { 
+  background-color: #F6E3CA;
+  border: #D7C8B6 2px solid; 
+  display: inline; 
+  margin-right: 10px;
+  font-size:x-large;
+}
+
+a { 
+  color: black; 
+  padding: 0 4px; 
+  text-decoration: none; 
+}
+
+a:hover { 
+  background-color: white; 
+  color: #D7C8B6; 
+}
